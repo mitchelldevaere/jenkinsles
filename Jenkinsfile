@@ -3,14 +3,11 @@ pipeline {
     agent any
     
     stages {
-        stage('Clonerepo') {
-            steps {
-               echo 'this is the clone stage'
-            }
-        }
         stage('Build') {
             steps {
                echo 'this is the build stage'
+                node('Node19.2') {
+                    sh 'npm init -y'
             }
         }
         stage('Test') {
